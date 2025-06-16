@@ -5,28 +5,25 @@ import java.awt.*;
 import controlador.LoginControlador;
 import modelo.Empleado;
 
-// Ventana de inicio de sesión para la aplicación Cafeina
+// Ventana de inicio de sesión para la aplicacion Cafeina
 public class Login extends JFrame {
     // Campo de texto para el usuario
     private JTextField usuarioField;
-    // Campo de contraseña
     private JPasswordField contraseniaField;
-    // Botón para iniciar sesión
     private JButton loginButton;
 
     // Constructor de la ventana Login
     public Login() {
-        setTitle("Cafeina - Login"); // Título de la ventana
-        setDefaultCloseOperation(EXIT_ON_CLOSE); // Cierra la app al cerrar ventana
-        setSize(430, 320); // Tamaño de la ventana
+        setTitle("Cafeina - Login"); 
+        setDefaultCloseOperation(EXIT_ON_CLOSE); 
+        setSize(430, 320); 
         setLocationRelativeTo(null); // Centra la ventana
-        setResizable(false); // No permite redimensionar
-        // Panel principal con color café y fondo degradado
+        setResizable(false); 
+        // ppanel principal con color cafe y fondo degradado
         JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                // Fondo degradado café
                 Graphics2D g2d = (Graphics2D) g;
                 Color color1 = new Color(78, 43, 14);
                 Color color2 = new Color(193, 154, 107);
@@ -35,10 +32,10 @@ public class Login extends JFrame {
                 g2d.fillRect(0, 0, getWidth(), getHeight());
             }
         };
-        mainPanel.setLayout(null); // Layout absoluto
+        mainPanel.setLayout(null); 
         setContentPane(mainPanel);
 
-        // Logo de café
+        // Logo de cafe
         JLabel iconLabel = new JLabel();
         iconLabel.setBounds(30, 20, 80, 80);
         ImageIcon icon = new ImageIcon(getClass().getResource("/Imagenes/Adobe Express - file.png"));
@@ -46,14 +43,14 @@ public class Login extends JFrame {
         iconLabel.setIcon(new ImageIcon(img));
         mainPanel.add(iconLabel);
 
-        // Título de la ventana
+        // Titulo de la ventana
         JLabel titulo = new JLabel("Bienvenido a Cafeina");
         titulo.setBounds(120, 30, 260, 30);
         titulo.setFont(new Font("Serif", Font.BOLD, 22));
         titulo.setForeground(Color.WHITE);
         mainPanel.add(titulo);
 
-        // Subtítulo
+        // Subtitulo
         JLabel subtitulo = new JLabel("Inicia sesión para continuar");
         subtitulo.setBounds(120, 60, 260, 20);
         subtitulo.setFont(new Font("SansSerif", Font.PLAIN, 14));
@@ -88,7 +85,7 @@ public class Login extends JFrame {
         contraseniaField.setBorder(BorderFactory.createLineBorder(new Color(111, 78, 55)));
         mainPanel.add(contraseniaField);
 
-        // Botón de inicio de sesión
+        // Boton de inicio de sesion
         loginButton = new JButton("Iniciar sesión");
         loginButton.setBounds(140, 210, 150, 35);
         loginButton.setBackground(new Color(111, 78, 55));
@@ -98,11 +95,11 @@ public class Login extends JFrame {
         loginButton.setBorder(BorderFactory.createLineBorder(new Color(78, 43, 14), 2));
         mainPanel.add(loginButton);
 
-        // Acción al presionar el botón de inicio de sesión
+        // Accion al presionar el botnn de login
         loginButton.addActionListener(e -> login());
     }
 
-    // Método para iniciar sesión
+    // Metodo para iniciar sesión
     private void login() {
         String usuario = usuarioField.getText();
         String contrasenia = new String(contraseniaField.getPassword());
