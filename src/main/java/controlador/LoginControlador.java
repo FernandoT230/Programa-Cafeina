@@ -8,12 +8,12 @@ import java.sql.ResultSet;
 
 // Controlador para la lógica de validación de empleados en el login
 public class LoginControlador {
-    // Método para validar si un empleado existe en la base de datos
+    // Metodo para validar si un empleado existe en la base de datos
     public Empleado validarEmpleado(String nombre1, String cedula) {
         CConexion conexion = new CConexion(); // Crea una instancia de la conexión
         Connection con = conexion.estableceConexion(); // Establece la conexión
         try {
-            // Consulta SQL para buscar al empleado por nombre y cédula
+            // Consulta SQL para buscar al empleado por nombre y cedula
             String sql = "SELECT * FROM empleado WHERE emp_nombre1 = ? AND emp_cedula = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nombre1);
@@ -32,10 +32,10 @@ public class LoginControlador {
             ps.close();
             con.close();
         } catch (Exception e) {
-            // Imprime el error en consola
+          
             e.printStackTrace();
         }
-        // Retorna null si no se encontró el empleado
+        
         return null;
     }
 }
